@@ -1,0 +1,142 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title>Mum Schedule</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+	crossorigin="anonymous">
+    <script type="text/javascript" src="js/src/studentRest.js" ></script>	
+
+</head>
+
+<body>
+<section class="col-8 my-2 mx-auto main-container">
+	<article class="card mt-4">
+		<h4 class="card-header text-center text-secondary py-3">Students
+			List</h4>
+		<div class="card-body">
+			<table class="mt-4 table table-borderless table-striped table-hover">
+				<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Student Number</th>
+					<th scope="col">First Name</th>
+					<th scope="col">Middle Name</th>
+					<th scope="col">Last Name</th>
+					<th scope="col">CGPA</th>
+					<th scope="col">Date Enrollement</th>
+					<th scope="col">Is International ?</th>
+
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:each="student: ${students}">
+
+					<th scope="row" th:text="${student.id}"/>
+					<td th:text="${student.studentNumber}"/>
+					<td th:text="${student.firstname}"/>
+					<td th:text="${student.MiddleName}"/>
+					<td th:text="${student.lastname}"/>
+					<td th:text="${student.cgpa}"/>
+					<td th:text="${student.enrollmentDate}"/>
+					<td th:text="${student.isInternational}"/>
+
+					<td><a th:href="@{'/students/' + ${student.id}}">
+						<button style="background-color: #4CAF50; color: white;"
+								id="submit-btn"
+								class="d-block btn btn-outline-secondary ms-auto">
+							Update
+						</button>
+					</a></td>
+					<td>
+						<button style="background-color: #FF0000; color: white;"
+								id="submit-btn"
+								th:onclick="deleteStudent([[${student.id}]],[[${student.firstname}]],[[${student.lastname}]])"
+								class="d-block btn btn-outline-secondary ms-auto">
+							Delete
+						</button>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</article>
+
+	<article class="card mt-4">
+		<h4 class="card-header text-center text-secondary py-3">Create a
+			New Student</h4>
+		<div class="card-body">
+			<form method="post" action="http://localhost:8080/api/students">
+
+				<div class="input-group mb-3">
+					<input type="text" class="form-control text-primary"
+						   placeholder="Student Number" aria-label="studentId" name="studentId"
+						   aria-describedby="Student ID" required>
+				</div>
+
+				<div class="input-group mb-3">
+					<input type="text" class="form-control text-primary"
+						   placeholder="First Name" aria-label="firstName" name="firstname"
+						   aria-describedby="First Name" required>
+				</div>
+
+				<div class="input-group mb-3">
+					<input type="text" class="form-control text-primary"
+						   placeholder="Middle Name" aria-label="middlename" name="middlename"
+						   aria-describedby="Middle Name">
+				</div>
+
+				<div class="input-group mb-3">
+					<input type="text" class="form-control text-primary"
+						   placeholder="Last Name" aria-label="lastname" name="lastname"
+						   aria-describedby="Last Name" required>
+				</div>
+
+				<div class="input-group mb-3">
+					<input type="text" class="form-control text-primary"
+						   placeholder="cgpa" aria-label="cgpa" name="cgpa"
+						   aria-describedby="cgpa" required>
+				</div>
+
+				<div class="input-group mb-3">
+					<small>Enter your Enrollement Date</small></br>
+					</br><input type="date" class="form-control text-primary"
+						   aria-label="enrollmentDate" name="enrollmentDate"
+						   aria-describedby="enrollment Date" value="" >
+
+				</div>
+
+
+
+				<small>Are you International Student ?</small></br>
+
+				<select>
+					<div>
+						<option disabled="true" selected="selected" value="">Select</option>
+						<option value="yes">yes</option>
+						<option value="no">no</option>
+					</div>
+				</select>
+
+
+
+
+
+
+				<div class="d-flex justify-content-end">
+					<button type="submit" id="submit-btn"
+							class="d-block btn btn-outline-primary ms-auto">Create
+					</button>
+				</div>
+
+			</form>
+		</div>
+	</article>
+</section>
+</body>
+</html>

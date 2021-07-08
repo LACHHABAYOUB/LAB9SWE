@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "822cc545-092e-4c50-b403-8cbbb94ab428",
+		"name": "Lab 9",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Student",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/eregistrar/api/student/list",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"eregistrar",
+						"api",
+						"student",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Specific ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/eregistrar/api/student/get/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"eregistrar",
+						"api",
+						"student",
+						"get",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register a new Student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n        \r\n        \"studentNumber\": \"000-61-0001\",\r\n        \"firstname\": \"Anna \",\r\n        \"lastname\": \"Smith\",\r\n        \"cgpa\": \"3.85\",\r\n        \"enrollmentDate\": \"2019-05-01\",\r\n        \"isInternational\": \"yes\",\r\n        \"middleName\": \"joe\"\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/eregistrar/api/student/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"eregistrar",
+						"api",
+						"student",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Student",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/eregistrar/api/student/delete/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"eregistrar",
+						"api",
+						"student",
+						"delete",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
