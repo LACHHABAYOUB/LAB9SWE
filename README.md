@@ -2,7 +2,7 @@
 
 An online Student CRUD
 
-App Build with Spring Framework as Back-End.
+App Build with Spring Framework as Back-End. AND html as front End 
 
 1 Getting Started
 
