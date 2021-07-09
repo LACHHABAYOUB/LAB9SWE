@@ -1,20 +1,17 @@
 package com.mumSchud.springbootmum.controllers;
 
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.mumSchud.springbootmum.entity.Student;
 import com.mumSchud.springbootmum.service.studentService;
 
 @Controller
-@CrossOrigin(origins = "http://127.0.0.1:5500/")
+@CrossOrigin(origins = "http://127.0.0.1:5500/,http://127.0.0.1:5500/registerForm.html")
 
 public class StudentController {
 	  @Autowired
@@ -61,6 +58,10 @@ public class StudentController {
 		}
 
 
+		@PutMapping("eregistrar/api/student/get/{id}")
+		public Student updateStudent(@RequestBody Student student, @PathVariable int id) {
+			return service.updateStudent(student, id);
+		}
 
 		@RequestMapping(value = "/eregistrar/api/student/delete/{id}", method = RequestMethod.DELETE)
 		public void delete(@PathVariable int id){
